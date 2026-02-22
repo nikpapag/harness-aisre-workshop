@@ -31,6 +31,21 @@ In this lab, the user sets up an incident type for the type of failure detected 
 3. From the top right of the screen select **Incident Types**
 4. Then select **+ Create Incident Type**
 
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Name       | <pre>`Incidents for Important Business Services`</pre>||
+| Short ID |<pre>`IBS`</pre>||
+|`                `|`                            `|`                `|
+
+
+5. Expand the **Show Default Fields**
+6. Edit the field **Impacted Services** and set to **Required**
+7. From the top navigation bar select **Creation Form**
+8. Check the Impacted Services Field
+9. Click **Save**
+
+<img width="1364" height="848" alt="image" src="https://github.com/user-attachments/assets/885c81c2-3f0c-4e1f-8a44-12fc175aff07" />
+
 
 
 # Lab 2 - Runbook Automation
