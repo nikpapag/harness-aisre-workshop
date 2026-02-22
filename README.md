@@ -62,8 +62,59 @@ In this lab, the user sets up a runbook to create a slack channel whenver a new 
 
 | Input      | Value     | Notes |
 | ---------- | ----------------------  | ----- |
-| Name       | <pre>`Automated Slack Updates`</pre>||
+| Name       | <pre>`Rollback Service`</pre>||
 |`                `|`     
+
+
+
+3. For the workflow setup a new action
+4. Observe the list of available actions
+5. From the list select **Harness** and then **Execute Harness Pipeline**
+7. Setup accordingly
+8. Run Pipeline YAML click on **Data**
+9. From the Data Source select **Runbook Input**
+10. Create new Input
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Display Name       | <pre>`service_name`</pre>||
+| Name       | <pre>`service_name`</pre>||
+| Default Value       | <pre>`frontend`</pre>||
+|`                `|`     
+
+
+<img width="859" height="620" alt="image" src="https://github.com/user-attachments/assets/4b62af43-97e8-4df3-ad16-2eeec7f4af4f" />
+
+
+
+11. And then replace the **Run pipeline YAML** with the one below
+
+   <pre>
+pipeline:
+  identifier: rollback_pipeline
+  variables:
+    - name: service_name
+      type: String
+      value: {{ScriptedAction.Inputs.service_name}}
+
+    
+   </pre>
+
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Channel Name       | <pre>`SLACK-{{Activity.activity_number}}`</pre>||
+|`                `|`     
+
+
+7. That way the channel will be named according to the issue
+8. Then navigate to **Triggers** from the navigation bar
+9. Select **+ New Trigger**
+10. Leave things as they are and click **save**
+
+
+
+
 
 # Lab 3 - Integrations Change Control
 # Lab 4 - Auto Remediation
