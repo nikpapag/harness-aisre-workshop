@@ -96,15 +96,8 @@ pipeline:
     - name: service_name
       type: String
       value: {{ScriptedAction.Inputs.service_name}}
-
-    
    </pre>
 
-
-| Input      | Value     | Notes |
-| ---------- | ----------------------  | ----- |
-| Channel Name       | <pre>`SLACK-{{Activity.activity_number}}`</pre>||
-|`                `|`     
 
 
 7. That way the channel will be named according to the issue
