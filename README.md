@@ -100,40 +100,71 @@ pipeline:
 
 
 
-7. That way the channel will be named according to the issue
-8. Then navigate to **Triggers** from the navigation bar
-9. Select **+ New Trigger**
-10. Leave things as they are and click **save**
+7. Then click on **Save**
 
-
-
+### Summary
+Now we have an incident type and an automated runbook
 
 
 # Lab 3 - Integrations Change Control
-# Lab 4 - Auto Remediation
+
+## Key Outcomes
+- Create integrations with external systems
+ 
+
+## Overview
+In this lab, the user sets up a change record for harness deployments
 
 
-Runbooks
-Automated Bridge
-Workflow
+### Step 1: Create an incident type
+1. In the Harness UI, navigate to the **AI SRE** module
+2. From the left menu, select **Integrations**.  
+3. Select **+ New Integration**
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Name       | <pre>`deploy`</pre>||
+| Type       | <pre>`Deployment`</pre>||
+| Select Template       | <pre>`Harness Deployment`</pre>||
+|`                `|`     
+
+4. Copy the Endpoint URL
+5. From the left handside menu navigate to **Project Settings** and then **variables**
+6. Edit the **change record url** to the one we copied earlier
+7. In the Harness UI, navigate to the **Continous Delivery** module
+8. From the left menu, select **Pipelines**.
+9. Run the **ai_sre_pipeline**  
 
 
-Incident Types
-<img width="524" height="450" alt="image" src="https://github.com/user-attachments/assets/9dd5d1e1-6d9d-4bf8-a7f3-1dc43ab36e5d" />
+# Lab 4 - Put it all together
+
+1.  In the Harness UI, navigate to the **AI SRE** module
+2.   From the left menu, select **Changes**.
+3.   Observe the new change appearing post pipeline execution
+
+ <img width="1625" height="902" alt="image" src="https://github.com/user-attachments/assets/903758ba-4f17-4e70-b52b-360800dab3cd" />
+
+4. From the left menu, select **Incidents**.
+5. Create new incident by clicking **+ New Incident**
+6. In the popup window type in the following the text
+
+<pre>Users reported issues with the frontend UI, access to the personal banking is unavailable. </pre>
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Environments       | <pre>`prod`</pre>||
+| Impacted Services       | <pre>`frontend`</pre>||
+|`                `|`     
+
+7. Click on runbooks
+8. **+ Execute Runbook**
+9. Select the Rollback Service
+10. service_name: frontend
+11.  In the Harness UI, navigate to the **Continuous Delivery** module
+12.  From the left handside menu select **Services**
+13.  Select **frontend**
+14.  Confirm that the service rolled back
+
+<img width="763" height="572" alt="image" src="https://github.com/user-attachments/assets/016c2385-ef25-4945-b930-87764063466e" />
 
 
-Required Fields
-Impacted Services
-Summary
-
-
-
-Integration
-
-<img width="495" height="443" alt="image" src="https://github.com/user-attachments/assets/d09ef2d5-bc58-41f1-9089-972ba8d36c86" />
-
-
-
-
-Rollback
-<img width="571" height="520" alt="image" src="https://github.com/user-attachments/assets/782708be-0f90-444c-83f5-fc818bbe0a86" />
