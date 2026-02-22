@@ -46,8 +46,25 @@ In this lab, the user sets up an incident type for the type of failure detected 
 
 7. Click **Save**
 
-
 # Lab 2 - Runbook Automation
+
+## Key Outcomes
+- Create automation runbooks to be executed in an automated or semi-auto way in responce to an incident
+ 
+
+## Overview
+In this lab, the user sets up a runbook to create a slack channel whenver a new incident happens
+
+---
+
+1. From the left menu, select **Runbooks**.
+2. Create a new runbook by clicking **+ New Runbook**
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Name       | <pre>`Automated Slack Updates`</pre>||
+|`                `|`     
+
 # Lab 3 - Integrations Change Control
 # Lab 4 - Auto Remediation
 
