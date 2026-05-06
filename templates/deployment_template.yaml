@@ -1,0 +1,60 @@
+template:
+  name: Change Record
+  type: Step
+  projectIdentifier: devx_ai_1
+  orgIdentifier: sandbox
+  spec:
+    type: ShellScript
+    spec:
+      shell: Bash
+      executionTarget: {}
+      source:
+        type: Inline
+        spec:
+          script: |-
+            timestamp="$(date -u +%Y-%m-%dT%H:%M:%SZ)"  # timestamped version (or override with arg)
+
+            echo $timestamp
+            echo $service
+            echo $environment
+            echo $triggered_by
+            echo $release
+            echo $service_version
+            echo $sequence_id
+            echo $ir_webhook
+            cmd="curl -X POST "$ir_webhook" \
+            -H 'Content-Type: application/json' \
+            -d '{\"services\":[{\"service\":\"$service\",\"version\":\"$service_version\"}],\"environments\":[\"$environment\"],\"changeId\":\"$sequence_id\",\"status\":\"SUCCESS\",\"deployedBy\":\"$triggered_by\",\"deployTimestamp\":\"$timestamp\"}'"
+
+            # Print it
+            echo "$cmd"
+
+            # Execute it
+            eval "$cmd"
+      environmentVariables:
+        - name: service
+          type: String
+          value: <+service.name>
+        - name: environment
+          type: String
+          value: <+env.name>
+        - name: triggered_by
+          type: String
+          value: <+pipeline.triggeredBy.email>
+        - name: release
+          type: String
+          value: <+infra.releaseName>
+        - name: service_version
+          type: String
+          value: <+artifacts.primary.tag>
+        - name: ir_webhook
+          type: String
+          value: <+variable.change_record_url>
+        - name: sequence_id
+          type: String
+          value: <+pipeline.sequenceId>
+      outputVariables: []
+      delegateSelectors: []
+    timeout: 10m
+  identifier: change_record
+  versionLabel: v0.1
