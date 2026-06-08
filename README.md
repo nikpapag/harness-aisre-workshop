@@ -388,6 +388,28 @@ pipeline:
 | Severity   | <pre>New</pre>||
 |`                `|`                            `|`                
 
-<img width="794" height="424" alt="image" src="https://github.com/user-attachments/assets/4b365ded-4873-4d20-a284-8ebc40a91ad7" />
+### Step 5: Simulation
+
+1. Navigate on the deployed application (for retrieving the url see Lab 6)
+2. You should see a certificate error
+
+<img width="631" height="646" alt="image" src="https://github.com/user-attachments/assets/a8522fd6-987b-4c51-8656-78b257e8c7cc" />
+
+3. In the Harness UI, navigate to the **Continuous Delivery** module
+4. From the left menu, select **Pipelines**.
+5. Select the **ssl_error_pipeline** and run it
+6. Observe how harness will handle the full lifecycle of
+
+# Incident Response Flow
+Detection
+↓
+Trigger Alert (Simulate Observability Tools)
+↓
+Raise Incident
+↓
+Auto-Remediate Issue
+
+
+
 
 
