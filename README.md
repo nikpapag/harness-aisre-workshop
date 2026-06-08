@@ -194,7 +194,7 @@ In this lab, the user sets up a change record for harness deployments
 | ---------- | ----------------------  | ----- |
 | Name       | <pre>`alert`</pre>||
 | Type       | <pre>`Alert`</pre>||
-| Select Template       | <pre>`AlertManager`</pre>||
+| Select Template       | <pre>`Dynatrace`</pre>||
 |`                `|`     
 
 4. Copy the Endpoint URL
@@ -256,5 +256,102 @@ When I navigate to the catalog, none of the product images are showing up, only 
 ```
 
 5. Observe the Incident as Harness analyses all the changes, correlated them with the PR data and build metadata to pinpoint the most likely change causing each incident
+
+<img width="971" height="556" alt="image" src="https://github.com/user-attachments/assets/92751bb0-7a6c-4ba6-bc7b-c1cf35ab6c49" />
+
+
+# Lab 6 - Full automation use case, certificate expiration
+
+## Validate application
+
+1. From the left hand side menu navigate to project settings
+2. Select **project variables**
+3. The url exists within the **lab_endpoint** variable 
+<img width="1692" height="302" alt="image" src="https://github.com/user-attachments/assets/5a215845-eadc-479d-9c81-5185bf039243" />
+4. In a new browser use the url to view the deployed application
+5. Everything looks normal?
+
+
+## Lets deploy an invalid certificate
+simulating a certificate expiry use case
+
+1.  In the Harness UI, navigate to the **Continuous Delivery** module
+2.  From the left menu, select **Pipelines**.
+> [!WARNING]
+> Before running the pipeline we will change the input
+> setting **ssl_input** to true
+4.  Run the **aisre** pipeline with the same input as the image below
+<img width="909" height="778" alt="image" src="https://github.com/user-attachments/assets/f3677234-060e-4455-93a0-83360bcc11d8" />
+
+### While the pipeline is running lets do some configuration
+
+1. In the Harness UI, navigate to the **AI SRE** module
+2. From the left menu, select **Integrations**.
+3. Select **+ New Integration**
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Name       | <pre>`cert`</pre>||
+| Type       | <pre>`Alert`</pre>||
+| Select Template       | <pre>`AlertManager`</pre>||
+|`                `|`     
+
+4. Copy the Endpoint URL
+5. From the left handside menu navigate to **Project Settings** and then **variables**
+6. Edit the **cert_alert_url** to the one we copied earlier
+
+
+### Step 1: Create an certificate incident type
+1. In the Harness UI, navigate to the **AI SRE** module
+2. From the left menu, select **Incidents**.  
+3. From the top right of the screen select **Incident Types**
+4. Then select **+ Create Incident Type**
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Name       | <pre>`Certificate Incident`</pre>||
+| Short ID |<pre>`CERT`</pre>||
+|`                `|`                            `|`                `|
+<img width="1277" height="754" alt="image" src="https://github.com/user-attachments/assets/ace6d9a6-9eb3-4a53-be28-bb4ae3a4c0ae" />
+
+
+1. From the left menu, select **Runbooks**.
+2. Create a new runbook by clicking **+ New Runbook**
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Name       | <pre>`Certificate Runbook`</pre>||
+|`                `|`     
+
+3. For the workflow setup a new step
+4. Observe the list of available actions
+5. From the list select **Other** and then **Execute Harness Pipeline**
+7. Setup accordingly
+8. Run Pipeline YAML click on **Data**
+9. From the Data Source select **Runbook Input**
+10. Create new Input
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Display Name       | <pre>`service_name`</pre>||
+| Name       | <pre>`service_name`</pre>||
+| Default Value       | <pre>`frontend`</pre>||
+|`                `|`     
+
+
+
+11. And then replace the **Run pipeline YAML** with the one below
+
+```
+pipeline:
+  identifier: certificate_fix
+  variables:
+    - name: service_name
+      type: String
+      value: {{ScriptedAction.Inputs.service_name}}
+   </pre>
+```
+
+
 
 
