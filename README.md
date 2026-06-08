@@ -314,6 +314,8 @@ simulating a certificate expiry use case
 <img width="1277" height="754" alt="image" src="https://github.com/user-attachments/assets/ace6d9a6-9eb3-4a53-be28-bb4ae3a4c0ae" />
 
 
+### Step 2: Setup a runbook in response to certificate issues
+
 1. From the left menu, select **Runbooks**.
 2. Create a new runbook by clicking **+ New Runbook**
 
@@ -337,8 +339,6 @@ simulating a certificate expiry use case
 | Default Value       | <pre>`frontend`</pre>||
 |`                `|`     
 
-
-
 11. And then replace the **Run pipeline YAML** with the one below
 
 ```
@@ -349,7 +349,45 @@ pipeline:
       type: String
       value: {{ScriptedAction.Inputs.service_name}}
 ```
+12. On the **triggers** tab select **+ New Trigger**
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Template       | <pre>`Certificate Incident`</pre>||
+| When       | <pre>`Activity Created`</pre>||
+| service_name      | <pre>`frontend`</pre>||
+|`                `|`     
+
+13. From the left menu, select **Incidents**.
+14. From the top right of the screen select **Incident Types**
+15. Select the **Certificate Incident**
+16. Under **Runbooks** tab
+17. **Pin** the Certificate Runbook
 
 
+
+### Step 4: Setup the Alert integration
+1. In the Harness UI, navigate to the **AI SRE** module
+2. From the left menu, select **Alerts**.  
+3. From the top right of the screen select **Alert Rules**
+4. Then select **+ New Alert Rule**
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Display Name       | <pre>`Certificate Rule`</pre>||
+| Source Integration |<pre>`ALERT - cert`</pre>||
+|`                `|`                            `|`                `|
+
+5. Under the Create Incident Tab
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Incident Type      | <pre>`Certificate Incident`</pre>||
+| Title      | <pre>`{{Activity.title}}`</pre>||
+| Severity   | <pre>SEV1:Major</pre>||
+| Severity   | <pre>New</pre>||
+|`                `|`                            `|`                
+
+<img width="794" height="424" alt="image" src="https://github.com/user-attachments/assets/4b365ded-4873-4d20-a284-8ebc40a91ad7" />
 
 
