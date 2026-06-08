@@ -130,7 +130,7 @@ In this lab, the user sets up a change record for harness deployments
 
 4. Copy the Endpoint URL
 5. From the left handside menu navigate to **Project Settings** and then **variables**
-6. Edit the **change record url** to the one we copied earlier
+6. Edit the **cd_change_record_url** to the one we copied earlier
 7. In the Harness UI, navigate to the **Continous Delivery** module
 8. From the left menu, select **Pipelines**.
 9. Run the **ai_sre_pipeline**  
