@@ -251,3 +251,7 @@ Product images not loading on catalog page
 Description
 When I navigate to the catalog, none of the product images are showing up, only placeholders are visible. This issue started today and persists across multiple devices and browsers.
 ```
+
+5. Observe the Incident as Harness analyses all the changes, correlated them with the PR data and build metadata to pinpoint the most likely change causing each incident
+
+
