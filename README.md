@@ -89,7 +89,7 @@ In this lab, the user sets up a runbook to create a slack channel whenver a new 
 
 11. And then replace the **Run pipeline YAML** with the one below
 
-   <pre>
+```
 pipeline:
   identifier: rollback_pipeline
   variables:
@@ -97,8 +97,7 @@ pipeline:
       type: String
       value: {{ScriptedAction.Inputs.service_name}}
    </pre>
-
-
+```
 
 7. Then click on **Save**
 
@@ -238,4 +237,13 @@ In this lab, the user sets up a change record for harness deployments
 ## Create a new Incident
 1.  In the Harness UI, navigate to the **AI SRE** module
 2.  From the left menu, select **Incidents**
-3.  
+
+
+```
+Start time
+05/06/2026, 10:05:00
+Title
+Frequent session timeouts while browsing
+Description
+I keep getting logged out of my account unexpectedly. It usually happens when I'm navigating through different sections quickly.
+```
