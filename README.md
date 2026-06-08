@@ -240,12 +240,15 @@ In this lab, the user sets up a change record for harness deployments
 3.  Click **+New Incident**
 4.  In the AI-Powered Quick Start place one of the options below, create a separate incident for the other option
 
+
+### Option 1
 ```
 Frequent session timeouts while browsing
 Description
 I keep getting logged out of my account unexpectedly. It usually happens when I'm navigating through different sections quickly.
 ```
 
+### Option 2
 ```
 Product images not loading on catalog page
 Description
