@@ -226,4 +226,16 @@ In this lab, the user sets up a change record for harness deployments
 ## Generate Changes
 1. In the Harness UI, navigate to the **Continous Delivery** module
 2. From the left menu, select **Pipelines**.
-3. Run the **generate_change_records** pipeline 
+3. Run the **generate_change_records** pipeline
+4. Validate Output
+
+<img width="491" height="420" alt="image" src="https://github.com/user-attachments/assets/ac0acee4-02f0-480f-a42b-a92854f34c69" />
+
+1.  In the Harness UI, navigate to the **AI SRE** module
+2.  From the left menu, select **Changes**.
+3.  Observe the new change appearing post pipeline execution
+
+## Create a new Incident
+1.  In the Harness UI, navigate to the **AI SRE** module
+2.  From the left menu, select **Incidents**
+3.  
