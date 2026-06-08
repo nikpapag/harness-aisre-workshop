@@ -167,4 +167,39 @@ In this lab, the user sets up a change record for harness deployments
 
 <img width="763" height="572" alt="image" src="https://github.com/user-attachments/assets/016c2385-ef25-4945-b930-87764063466e" />
 
-# Lab 3 - Change Corelaton
+# Lab 5 - AI Change Corelation
+
+## Build Integration
+1. In the Harness UI, navigate to the **AI SRE** module
+2. From the left menu, select **Integrations**.
+3. Select **+ New Integration**
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Name       | <pre>`build`</pre>||
+| Type       | <pre>`Build`</pre>||
+| Select Template       | <pre>`Harness Build`</pre>||
+|`                `|`     
+
+4. Copy the Endpoint URL
+5. From the left handside menu navigate to **Project Settings** and then **variables**
+6. Edit the **build_record_url** to the one we copied earlier
+
+
+## Alert Integration
+1. In the Harness UI, navigate to the **AI SRE** module
+2. From the left menu, select **Integrations**.
+3. Select **+ New Integration**
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Name       | <pre>`alert`</pre>||
+| Type       | <pre>`Alert`</pre>||
+| Select Template       | <pre>`AlertManager`</pre>||
+|`                `|`     
+
+4. Copy the Endpoint URL
+5. From the left handside menu navigate to **Project Settings** and then **variables**
+6. Edit the **alert_record_url** to the one we copied earlier
+
+
