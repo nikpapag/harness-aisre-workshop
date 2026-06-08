@@ -67,9 +67,9 @@ In this lab, the user sets up a runbook to create a slack channel whenver a new 
 
 
 
-3. For the workflow setup a new action
+3. For the workflow setup a new step
 4. Observe the list of available actions
-5. From the list select **Harness** and then **Execute Harness Pipeline**
+5. From the list select **Other** and then **Execute Harness Pipeline**
 7. Setup accordingly
 8. Run Pipeline YAML click on **Data**
 9. From the Data Source select **Runbook Input**
