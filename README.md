@@ -96,7 +96,6 @@ pipeline:
     - name: service_name
       type: String
       value: {{ScriptedAction.Inputs.service_name}}
-   </pre>
 ```
 
 7. Then click on **Save**
@@ -349,7 +348,6 @@ pipeline:
     - name: service_name
       type: String
       value: {{ScriptedAction.Inputs.service_name}}
-   </pre>
 ```
 
 
