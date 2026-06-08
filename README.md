@@ -133,7 +133,7 @@ In this lab, the user sets up a change record for harness deployments
 6. Edit the **cd_change_record_url** to the one we copied earlier
 7. In the Harness UI, navigate to the **Continous Delivery** module
 8. From the left menu, select **Pipelines**.
-9. Run the **ai_sre_pipeline**  
+9. Run the **aisre** pipeline  
 
 
 # Lab 4 - Put it all together
