@@ -237,13 +237,17 @@ In this lab, the user sets up a change record for harness deployments
 ## Create a new Incident
 1.  In the Harness UI, navigate to the **AI SRE** module
 2.  From the left menu, select **Incidents**
-
+3.  Click **+New Incident**
+4.  In the AI-Powered Quick Start place one of the options below, create a separate incident for the other option
 
 ```
-Start time
-05/06/2026, 10:05:00
-Title
 Frequent session timeouts while browsing
 Description
 I keep getting logged out of my account unexpectedly. It usually happens when I'm navigating through different sections quickly.
+```
+
+```
+Product images not loading on catalog page
+Description
+When I navigate to the catalog, none of the product images are showing up, only placeholders are visible. This issue started today and persists across multiple devices and browsers.
 ```
