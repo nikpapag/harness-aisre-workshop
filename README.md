@@ -203,3 +203,27 @@ In this lab, the user sets up a change record for harness deployments
 6. Edit the **alert_record_url** to the one we copied earlier
 
 
+## PR Ingestion
+1. In the Harness UI, navigate to the **AI SRE** module
+2. From the left menu, select **Integrations**.
+3. From the top right nav bar select **PR ingestions**
+4. Select **+ New PR Integration**
+5. Select **github**
+6. From the list of connectors select 
+
+| Input      | Value     | Notes |
+| ---------- | ----------------------  | ----- |
+| Select a connector       | <pre>`incident_simulator`</pre>||
+|`                `|`     
+
+4. Click on Create
+5. Observe the ingestion, it will take a couple of minutes 
+
+<img width="658" height="393" alt="image" src="https://github.com/user-attachments/assets/9d00abe0-b533-48e2-a9e1-b018daab6f0a" />
+
+
+
+## Generate Changes
+1. In the Harness UI, navigate to the **Continous Delivery** module
+2. From the left menu, select **Pipelines**.
+3. Run the **generate_change_records** pipeline 
